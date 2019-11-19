@@ -8,7 +8,10 @@ public class Administrador extends Sistema{
 	private String user;
 	private String password;
 	
-	
+	public Administrador(String user,String password){
+		this.user=user;
+		this.password=password;
+	}
 	
 	public void agregarRestaurant(Restaurant restaurant) throws UsuarioYaExistenteException{
 		
@@ -68,5 +71,6 @@ public class Administrador extends Sistema{
 	public void setListaRestaurant(ArrayList<Restaurant> listaRestaurant) {
 		this.listaRestaurant = listaRestaurant;
 	}
-	
+
+
 }

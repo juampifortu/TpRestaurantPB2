@@ -51,7 +51,7 @@ public class TestRestaurant {
 	@Test
 	public void testQueVerifiqueQueElijaRestaurant() throws UsuarioYaExistenteException{
 		Sistema sis=new Sistema();		
-		Administrador admin=new Administrador();
+		Administrador admin=new Administrador("ricardo","123456");
 		Restaurant rest=new Restaurant("Unlam");
 		
 		admin.agregarRestaurant(rest);
@@ -63,7 +63,7 @@ public class TestRestaurant {
 	@Test
 	public void testQueVerificaQueSeBorroUnRestaurant() throws UsuarioYaExistenteException, RestaurantNoExistenteException{
 		Sistema sis=new Sistema();		
-		Administrador admin=new Administrador();
+		Administrador admin=new Administrador("ricardo","123456");
 		Restaurant rest=new Restaurant("Unlam");
 		
 		

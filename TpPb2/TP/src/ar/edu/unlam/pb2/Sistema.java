@@ -14,11 +14,12 @@ public class Sistema {
 	private String correo;
 	private Date fecha;
 	private Integer nro_pedido;
-	//private Usuario usuario;
 	protected ArrayList<Restaurant> listaRestaurant=new ArrayList<Restaurant>();
+	private ArrayList<Administrador> listaAdmins;
 	
 	public Sistema(){
 		this.listaUsuarios=new ArrayList<Usuario>();
+		this.listaAdmins=new ArrayList<Administrador>();
 	}
 	
 	public Boolean agregarUsuario(Usuario user) throws UsuarioYaExistenteException{
@@ -33,12 +34,9 @@ public class Sistema {
 		for (Usuario usuario : listaUsuarios) {
 			if(usuario.getCorreo().equals(user.getCorreo())){
 				exito = false;
-				throw new UsuarioYaExistenteException();
-				
+				throw new UsuarioYaExistenteException();		
 		}
-	
 		else{
-		
 			listaUsuarios.add(user);
 			exito = true;
 		}
@@ -47,34 +45,51 @@ public class Sistema {
 		return exito;
 	}
 	
-	/*public void menu(String opcion, String opcion2){
+	public Boolean agregarAdmin(Administrador admin)throws AdministradorYaExistenteException{
+		Boolean exito=false;
 		
-		switch(opcion){
-		case "a":
-			agregarUsuario(usuario);
-			break;
-		
-		case "b":
-			for (Usuario usuario : listaUsuarios) {
-				if(listaUsuarios.equals(correo)){
-					switch (opcion2) {
-					case "a":
-						calcularNumeroOrden();
-						break;
-					case "b":
-						eliminarUsuario(usuario);
-						break;
-					case "c":
-						
-						break;
-					default:
-						break;
-					}
-				}
-			}
-			break;
+		if(listaAdmins.isEmpty()){
+			listaAdmins.add(admin);
+			exito=true;
 		}
-	}*/
+		else{
+			for (Administrador administrador : listaAdmins) {
+				if(administrador.getCorreo().equals(admin.getCorreo())){
+					exito=false;
+					throw new AdministradorYaExistenteException();
+				}
+			
+			else{
+				listaAdmins.add(admin);
+				exito=true;
+			}}
+		}
+		return exito;
+	}
+	
+	public Boolean iniciarSesionAdmin(Administrador admin){
+		Boolean exito=false;
+		for (Administrador administrador : listaAdmins) {
+			if(administrador.getUser().equals(admin.getUser())){
+				exito=true;
+			}
+		}
+		return exito;
+	}
+	public Boolean iniciarSesion(Usuario user) throws UsuarioNoExistenteException{
+		Boolean exito=false;
+		for (Usuario usuario : listaUsuarios) {
+			if(usuario.getCorreo().equals(user.getCorreo())){
+				exito=true;
+			}
+			
+			else{
+				throw new UsuarioNoExistenteException();
+			}
+		}
+		return exito;
+	}
+	
 	
 	public int calcularNumeroOrden(){
 		return listaUsuarios.size();			
@@ -88,8 +103,6 @@ public class Sistema {
 		if(!listaUsuarios.contains(usuarios)){
 			throw new UsuarioNoExistenteException();
 		}
-		
-		
 		if (usuarios.equals(usuario)) {	
 		it.remove();
 		}
@@ -172,13 +185,6 @@ public class Sistema {
 		this.nro_pedido = nro_pedido;
 	}
 
-//	public Usuario getUsuario() {
-//		return usuario;
-//	}
-//
-//	public void setUsuario(Usuario usuario) {
-//		this.usuario = usuario;
-//	}
 
 	public ArrayList<Restaurant> getListaRestaurant() {
 		return listaRestaurant;
