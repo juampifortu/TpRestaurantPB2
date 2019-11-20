@@ -30,9 +30,12 @@ public class Main {
 	
 	do {
 								//MENU PRINCIPAL//
-		System.out.println("Ingrese\n 1. Usuario\n 2. Administrador");
+		System.out.println("Ingrese\n 1. Usuario\n 2. Administrador\n 0. Salir");
 		opc=teclado.nextInt();
 		switch (opc) {
+		case 0:
+			System.out.println("Gracias,vuelva pronto");
+			break;
 		case 1:
 			System.out.println("Ingrese:\n 1. Registrarse\n 2. Iniciar Sesión\n 0. Salir");
 			opc=teclado.nextInt();
@@ -65,7 +68,7 @@ public class Main {
 						System.out.println("Ingrese el nombre del restaurant");
 						nombreRest=teclado.next();
 						sis.elegirRestaurant(nombreRest);
-						System.out.println(sis.elegirRestaurant(nombreRest));
+						
 						
 						miUsuario.pedir(miUsuario, ped);
 						break;
@@ -99,7 +102,7 @@ public class Main {
 						System.out.println("Ingrese el nombre del restaurant");
 						nombreRest=teclado.next();
 						sis.elegirRestaurant(nombreRest);
-						System.out.println(sis.elegirRestaurant(nombreRest));
+						
 						
 						miUsuario.pedir(miUsuario, ped);
 						break;
@@ -231,31 +234,11 @@ public class Main {
 				}
 			}
 			
-			/*System.out.println("¿Desea seguir cargando datos? \n 1. SI \n 2.NO");
-			opc3=teclado.nextInt(0);
-			
-			
-			switch(opc3) {
-			
-			case 1: 
-				System.out.println("Usted decidio seguir en el menu");
-				
-				break;
-			
-				
-			case 2: 
-				System.out.println("Usted ha decidido salir");
-				break;
-			}*/
-			
-			
-			
-			
 			break;
 		}
 		
 		
-	}while(opc!=4);
+	}while(opc!=0);
 	
 		
 			
