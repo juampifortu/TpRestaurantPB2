@@ -8,7 +8,6 @@ import org.junit.Test;
 
 public class TestRestaurant {
 
-	
 
 	@Test
 	public void testQueVerifiqueQueAgregaUsuario() throws UsuarioYaExistenteException{
@@ -25,11 +24,10 @@ public class TestRestaurant {
 	@Test
 	public void testQueVerifiqueNumeroDeOrden() throws UsuarioYaExistenteException{
 		Usuario miUsuario=new Usuario("Esteban","Sanchez","esanchez@gmail.com","esan123");
-		Usuario miUsuario2=new Usuario("Ricardo","Sanchez","sanchez@gmail.com","ricard123");
 		Sistema sis=new Sistema();		
 		
 		sis.agregarUsuario(miUsuario);
-		sis.agregarUsuario(miUsuario2);
+		
 		
 		assertEquals(1, sis.calcularNumeroOrden());
 

@@ -4,7 +4,7 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Sistema {
+public class Sistema{
 
 	private ArrayList<Usuario> listaUsuarios;
 	private String producto;
@@ -103,14 +103,14 @@ public class Sistema {
 		if(!listaUsuarios.contains(usuarios)){
 			throw new UsuarioNoExistenteException();
 		}
-		if (usuarios.equals(usuario)) {	
+		if (usuarios.getCorreo().equals(usuario.getCorreo())) {	
 		it.remove();
 		}
 		}
 		
 		
 	}
-	
+
 	public Restaurant elegirRestaurant(String nombre) throws RestaurantNoExistenteException{
 		for (Restaurant restaurant : listaRestaurant) {
 			if(restaurant.getNombre().equals(nombre)){
@@ -119,7 +119,6 @@ public class Sistema {
 		}
 		return null;
 	}
-	
 	
 	public ArrayList<Usuario> getListaUsuarios() {
 		return listaUsuarios;
@@ -192,6 +191,14 @@ public class Sistema {
 
 	public void setListaRestaurant(ArrayList<Restaurant> listaRestaurant) {
 		this.listaRestaurant = listaRestaurant;
+	}
+
+	public ArrayList<Administrador> getListaAdmins() {
+		return listaAdmins;
+	}
+
+	public void setListaAdmins(ArrayList<Administrador> listaAdmins) {
+		this.listaAdmins = listaAdmins;
 	}
 
 	

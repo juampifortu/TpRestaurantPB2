@@ -7,6 +7,8 @@ public class Administrador extends Sistema{
 
 	private String user;
 	private String password;
+
+	
 	
 	public Administrador(String user,String password){
 		this.user=user;
@@ -15,18 +17,18 @@ public class Administrador extends Sistema{
 	
 	public void agregarRestaurant(Restaurant restaurant) throws UsuarioYaExistenteException{
 		
-		if(super.getListaRestaurant().isEmpty()){
-			super.getListaRestaurant().add(restaurant);
+		if(listaRestaurant.isEmpty()){
+			listaRestaurant.add(restaurant);
 			
 		}
 		else{
-	for (Restaurant  rest : super.getListaRestaurant()) {
+	for (Restaurant  rest : listaRestaurant) {
 		if(rest.getNombre().equals(restaurant.getNombre())){
 			throw new UsuarioYaExistenteException();
 			
 		}
 	else{
-		super.getListaRestaurant().add(restaurant);
+		listaRestaurant.add(restaurant);
 	}
 		
 	}
@@ -51,6 +53,7 @@ public class Administrador extends Sistema{
 	}
 	
 	
+	
 	public String getUser() {
 		return user;
 	}
@@ -71,6 +74,5 @@ public class Administrador extends Sistema{
 	public void setListaRestaurant(ArrayList<Restaurant> listaRestaurant) {
 		this.listaRestaurant = listaRestaurant;
 	}
-
 
 }

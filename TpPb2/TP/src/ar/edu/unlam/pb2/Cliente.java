@@ -18,15 +18,15 @@ public class Cliente {
 		Iterator<Pedido> it = listaHistorialPedido.iterator(); 
 		
 		while(it.hasNext()){
-			
+			Pedido pedidos= it.next();
 			if(!listaHistorialPedido.contains(pedido)){
 				
 				throw new PedidoNoExistenteException();
 			}
-			
-			if(cliente.getListaHistorialPedido().equals(pedido)){
+			if(pedidos.getNro_pedido().equals(pedido.getNro_pedido())){
 				it.remove();
 			}
+			
 		}
 	}
 	
@@ -45,5 +45,7 @@ public class Cliente {
 	public void setListaHistorialPedido(LinkedList<String> listaPedidos) {
 		this.listaHistorialPedido = listaHistorialPedido;
 	}
+
+	
 
 }
